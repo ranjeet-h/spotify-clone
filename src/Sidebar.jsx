@@ -8,28 +8,26 @@ import { useDataLayerValue } from "./DataLayer";
 
 function Sidebar() {
   const [{ playlists }, dispatch] = useDataLayerValue();
- 
+  console.log(playlists);
+
   return (
     <div className="sidebar">
-      <img
-        className="sidebar__logo "
-        src="Spotify_Logo_CMYK_White.png"
-        alt=""
-      />
-      <SidebarOption Icon={HomeIcon} title="Home" />
-      <SidebarOption Icon={SearchIcon} title="Search" />
-      <SidebarOption Icon={LibraryMusicIcon} title="Your Library" />
+      <img className="sidebar__logo" src="Spotify_Logo_CMYK_White.png" alt="" />
+      <SidebarOption Icon={HomeIcon} option="Home" />
+      <SidebarOption Icon={SearchIcon} option="Search" />
+      <SidebarOption Icon={LibraryMusicIcon} option="Your Library" />
       <br />
       <strong className="sidebar__title">PLAYLISTS</strong>
       <hr />
       {playlists?.items?.map((playlist) => (
-        <SidebarOption title={playlist.name} />
+        <SidebarOption option={playlist.name} />
       ))}
-      {/* <SidebarOption title="Hip Hop" />
-      <SidebarOption title="Rock" />
-      <SidebarOption title="RnB" /> */}
     </div>
   );
 }
+
+
+
+
 
 export default Sidebar;
